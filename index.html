@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Tic Tac Toe</title>
+</head>
+<body style="margin: 0; background-color: gray;">
+	<canvas id="canvas" style="display: block;"></canvas>
+	<script type="text/javascript" charset="utf-8">
+		let
+			cvs = document.getElementById("canvas"),
+			ctx = cvs.getContext("2d"),
+			fig = "x",
+			drawList = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+			
+		
+		cvs.width = window.innerWidth;
+		cvs.height = window.innerHeight;
+	  
+	  // playground
+		ctx.fillStyle = "green";
+		ctx.fillRect(0, 0, 300, 300);
+		ctx.lineWidth = 5;
+		ctx.strokeStyle = "black";
+		ctx.beginPath();
+		ctx.moveTo(100, 0);
+		ctx.lineTo(100, 300);
+		ctx.moveTo(200, 0);
+		ctx.lineTo(200, 300);
+		ctx.moveTo(0, 100);
+		ctx.lineTo(300, 100);
+		ctx.moveTo(0, 200);
+		ctx.lineTo(300, 200);
+		ctx.stroke();
+		
+		function draw(figura, pos)
+		{
+			switch(pos)
+			{
+				case 1:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(25, 25);
+						ctx.lineTo(75, 75);
+						ctx.moveTo(75, 25);
+						ctx.lineTo(25, 75);
+						ctx.stroke();
+						fig = "o";
+						drawList[0] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(50, 50, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[0] = 2;
+					}
+					break;
+				case 2:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(125, 25);
+						ctx.lineTo(175, 75);
+						ctx.moveTo(175, 25);
+						ctx.lineTo(125, 75);
+						ctx.stroke();
+						fig = "o";
+						drawList[1] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(150, 50, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[1] = 2;
+					}
+					break;
+				case 3:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(225, 25);
+						ctx.lineTo(275, 75);
+						ctx.moveTo(275, 25);
+						ctx.lineTo(225, 75);
+						ctx.stroke();
+						fig = "o";
+						drawList[2] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(250, 50, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[2] = 2;
+					}
+					break;
+				case 4:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(25, 125);
+						ctx.lineTo(75, 175);
+						ctx.moveTo(75, 125);
+						ctx.lineTo(25, 175);
+						ctx.stroke();
+						fig = "o";
+						drawList[3] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(50, 150, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[3] = 2;
+					}
+					break;
+				case 5:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(125, 125);
+						ctx.lineTo(175, 175);
+						ctx.moveTo(175, 125);
+						ctx.lineTo(125, 175);
+						ctx.stroke();
+						fig = "o";
+						drawList[4] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(150, 150, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[4] = 2;
+					}
+					break;
+				case 6:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(225, 125);
+						ctx.lineTo(275, 175);
+						ctx.moveTo(275, 125);
+						ctx.lineTo(225, 175);
+						ctx.stroke();
+						fig = "o";
+						drawList[5] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(250, 150, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[5] = 2;
+					}
+					break;
+				case 7:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(25, 225);
+						ctx.lineTo(75, 275);
+						ctx.moveTo(75, 225);
+						ctx.lineTo(25, 275);
+						ctx.stroke();
+						fig = "o";
+						drawList[6] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(50, 250, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[6] = 2;
+					}
+					break;
+				case 8:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(125, 225);
+						ctx.lineTo(175, 275);
+						ctx.moveTo(175, 225);
+						ctx.lineTo(125, 275);
+						ctx.stroke();
+						fig = "o";
+						drawList[7] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(150, 250, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[7] = 2;
+					}
+					break;
+				case 9:
+					if(figura == "x")
+					{
+						ctx.beginPath();
+						ctx.moveTo(225, 225);
+						ctx.lineTo(275, 275);
+						ctx.moveTo(275, 225);
+						ctx.lineTo(225, 275);
+						ctx.stroke();
+						fig = "o";
+						drawList[8] = 1;
+					} else {
+						ctx.beginPath();
+						ctx.arc(250, 250, 25, 0, Math.PI * 2);
+						ctx.stroke();
+						fig = "x";
+						drawList[8] = 2;
+					}
+					break;
+			}
+			checkWin(drawList);
+		}
+		
+		function checkWin(drawList)
+		{
+			if(drawList[0] == 1 && drawList[1] == 1 && drawList[2] == 1 || drawList[3] == 1 && drawList[4] == 1 && drawList[5] == 1 || drawList[6] == 1 && drawList[7] == 1 && drawList[8] == 1 || drawList[0] == 1 && drawList[4] == 1 && drawList[8] == 1 || drawList[0] == 1 && drawList[3] == 1 && drawList[6] == 1 || drawList[1] == 1 && drawList[4] == 1 && drawList[7] == 1 || drawList[2] == 1 && drawList[5] == 1 && drawList[8] == 1)
+			{
+				alert("x is winner");
+				location.reload();
+			}
+			if(drawList[0] == 2 && drawList[1] == 2 && drawList[2] == 2 || drawList[3] == 2 && drawList[4] == 2 && drawList[5] == 2 || drawList[6] == 2 && drawList[7] == 2 && drawList[8] == 2 || drawList[0] == 2 && drawList[4] == 2 && drawList[8] == 2 || drawList[0] == 2 && drawList[3] == 2 && drawList[6] == 2 || drawList[1] == 2 && drawList[4] == 2 && drawList[7] == 2 || drawList[2] == 2 && drawList[5] == 2 && drawList[8] == 2)
+			{
+				alert("o is winner");
+				location.reload();
+			}
+			if(drawList[0] != 0 && drawList[1] != 0 && drawList[2] != 0 && drawList[3] != 0 && drawList[4] != 0 && drawList[5] != 0 && drawList[6] != 0 && drawList[7] != 0 && drawList[8] != 0)
+			{
+				alert("draw!!!");
+				location.reload();
+			}
+		}
+		
+		cvs.addEventListener("mousedown", function(e) {
+			if(e.clientX < 100 && e.clientY < 100 && drawList[0] == 0)
+			{
+				draw(fig, 1);
+			}
+			if(e.clientX > 100 && e.clientX < 200 && e.clientY < 100 && drawList[1] == 0)
+			{
+				draw(fig, 2);
+			}
+			if(e.clientX > 200 && e.clientX < 300 && e.clientY < 100 && drawList[2] == 0)
+			{
+				draw(fig, 3);
+			}
+			if(e.clientX < 100 && e.clientY > 100 && e.clientY < 200 && drawList[3] == 0)
+			{
+				draw(fig, 4);
+			}
+			if(e.clientX > 100 && e.clientX < 200 && e.clientY > 100 && e.clientY < 200 && drawList[4] == 0)
+			{
+				draw(fig, 5);
+			}
+			if(e.clientX > 200 && e.clientX < 300 && e.clientY > 100 && e.clientY < 200 && drawList[5] == 0)
+			{
+				draw(fig, 6);
+			}
+			if(e.clientX < 100 && e.clientY > 200 && e.clientY < 300 && drawList[6] == 0)
+			{
+				draw(fig, 7);
+			}
+			if(e.clientX > 100 && e.clientX < 200 && e.clientY > 200 && e.clientY < 300 && drawList[7] == 0)
+			{
+				draw(fig, 8);
+			}
+			if(e.clientX > 200 && e.clientX < 300 && e.clientY > 200 && e.clientY < 300 && drawList[8] == 0)
+			{
+				draw(fig, 9);
+			}
+		});
+	</script>
+</body>
+</html>
